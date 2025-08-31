@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fathima Rasha T P | Portfolio</title>
+
+  <!-- ✅ Google Analytics (tracking page views) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH0J997NFY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NH0J997NFY'); // Replace with your GA4 ID if needed
+  </script>
+
+  <!-- ✅ FontAwesome icons (used for scroll-to-top arrow) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+      color: #f5f5f5;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 2rem;
+      background: rgba(20, 20, 20, 0.9);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
+      padding-bottom: 4px;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ff5252;
+      transition: width 0.3s;
+    }
+    nav a:hover {
+      color: #ff5252;
+    }
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+    nav a.active {
+      color: #ff5252;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease-in;
+    }
+    h1, h2 {
+      color: #ff5252;
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2rem; border-left: 5px solid #ff5252; padding-left: 10px; }
+
+    .card {
+      background: #1e1e1e;
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    ul { list-style: none; }
+    li { margin-bottom: 0.8rem; }
+
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 5rem;
+    }
+    #home img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      border: 4px solid #ff5252;
+      box-shadow: 0 0 15px rgba(255,82,82,0.6);
+    }
+    #home p {
+      max-width: 600px;
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      background: #ff5252;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255,82,82,0.6);
+    }
+    .btn:hover {
+      background: #ff2e2e;
+      box-shadow: 0 0 20px rgba(255,82,82,0.9);
+    }
+
+    .contact-info p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    .contact-info a {
+      color: #ff5252;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      background: rgba(255,82,82,0.5);
+      color: #bbb;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 14px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 6px rgba(255,82,82,0.4);
+      transition: 0.3s;
+      z-index: 999;
+    }
+    #scrollTopBtn:hover {
+      background: rgba(255,46,46,0.9);
+      color: #fff;
+      box-shadow: 0 0 15px rgba(255,82,82,0.9);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="certificate.html" target="_blank" onclick="gtag('event','view_certificates',{event_category:'Navigation',event_label:'Certificates Tab'});">Certificates</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Home -->
+  <section id="home">
+    <img src="profile.jpg" alt="Profile Picture">
+    <h1>Hi, I'm Fathima Rasha T P 👋</h1>
+    <p>Web & App Designer passionate about crafting beautiful, user-friendly interfaces and seamless digital experiences.</p>
+    <a href="certificate.html" target="_blank" class="btn" onclick="gtag('event','click',{event_category:'Button',event_label:'View Certificates Button'});">📜 View Certificates</a>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="card">
+      <ul>
+        <li>✨ HTML, CSS, JavaScript</li>
+        <li>⚛️ React & Node.js</li>
+        <li>🎨 UI/UX Design</li>
+        <li>🗄️ Database Management</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <ul>
+        <li><b>Bachelor’s in Computer Science</b> - Bangalore University (2020 - 2023)</li>
+        <li><b>PUC</b> - St. Francis PU College (2018 - 2020)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="card contact-info">
+      <p>📧 Email: <a href="mailto:fathimarashatp786@gmail.com" onclick="gtag('event','click',{event_category:'Contact',event_label:'Email'});">fathimarashatp786@gmail.com</a></p>
+      <p>📞 Phone: <a href="tel:+919876512345" onclick="gtag('event','click',{event_category:'Contact',event_label:'Phone'});">+91 98765 12345</a></p>
+      <p>📍 Location: Bengaluru, India</p>
+      <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/fathima-rasha-t-p-7b62b9289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" onclick="gtag('event','click',{event_category:'Contact',event_label:'LinkedIn'});">View Profile</a></p>
+    </div>
+  </section>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+
+  <script>
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollBtn.style.display = "flex";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      gtag('event','click',{event_category:'Button',event_label:'Scroll to Top'}); // track scroll-to-top usage
+    }
+  </script>
+</body>
+</html>

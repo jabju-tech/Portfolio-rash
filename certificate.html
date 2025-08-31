@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Certificates</title>
+
+  <!-- ✅ Google Analytics Setup -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NH0J997NFY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NH0J997NFY'); // Replace with your GA4 Measurement ID
+  </script>
+
+  <style>
+    /* General Page Styling */
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #111;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #ff5252;
+      margin-bottom: 2rem;
+    }
+
+    /* Certificates Grid */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* Certificate Card */
+    .cert-card {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .cert-card:hover {
+      transform: scale(1.05);
+    }
+    .cert-card img {
+      max-width: 100%;
+      border-radius: 10px;
+      border: 3px solid #ff5252;
+    }
+    .cert-card p {
+      margin-top: 0.8rem;
+      color: #ddd;
+      font-weight: 500;
+    }
+
+    /* Back to Portfolio Button */
+    .back-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      background: #ff5252;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255,82,82,0.6);
+    }
+    .back-btn:hover {
+      background: #ff2e2e;
+      box-shadow: 0 0 20px rgba(255,82,82,0.9);
+    }
+
+    /* Lightbox Overlay */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding: 40px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.95);
+      text-align: center;
+    }
+    .lightbox img {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      border: 4px solid #ff5252;
+    }
+
+    /* Close Button for Lightbox */
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .close:hover {
+      color: #ff5252;
+    }
+
+    /* Back button inside lightbox */
+    .lightbox-back {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      background: #ff5252;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255,82,82,0.6);
+      cursor: pointer;
+    }
+    .lightbox-back:hover {
+      background: #ff2e2e;
+      box-shadow: 0 0 20px rgba(255,82,82,0.9);
+    }
+  </style>
+</head>
+<body>
+  <!-- Page Title -->
+  <h1>My Certificates</h1>
+
+  <!-- Certificates Grid -->
+  <div class="cert-grid">
+    <div class="cert-card" onclick="openLightbox('certificate1.jpg','Algorithms in C')">
+      <img src="certificate1.jpg" alt="Algorithms in C">
+      <p>Algorithms in C</p>
+    </div>
+    <div class="cert-card" onclick="openLightbox('certificate2.jpg','Computer Architecture – Digital Components')">
+      <img src="certificate2.jpg" alt="Computer Architecture – Digital Components">
+      <p>Computer Architecture – Digital Components</p>
+    </div>
+    <div class="cert-card" onclick="openLightbox('certificate3.jpg','Software Engineering')">
+      <img src="certificate3.jpg" alt="Software Engineering">
+      <p>Software Engineering</p>
+    </div>
+    <div class="cert-card" onclick="openLightbox('certificate4.jpg','Programming Fundamentals using Python')">
+      <img src="certificate4.jpg" alt="Programming Fundamentals using Python">
+      <p>Programming Fundamentals using Python</p>
+    </div>
+    <div class="cert-card" onclick="openLightbox('certificate5.jpg','Basics of Python')">
+      <img src="certificate5.jpg" alt="Basics of Python">
+      <p>Basics of Python</p>
+    </div>
+  </div>
+
+  <!-- Back Button to Portfolio -->
+  <a href="index.html" class="back-btn" onclick="gtag('event','click',{event_category:'Navigation',event_label:'Back to Portfolio'});">⬅ Back to Portfolio</a>
+
+  <!-- Lightbox (Image Viewer) -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="">
+    <br>
+    <button class="lightbox-back" onclick="closeLightbox()">⬅ Back to Certificates</button>
+  </div>
+
+  <script>
+    // Open Lightbox with selected certificate
+    function openLightbox(imgSrc, certName) {
+      document.getElementById("lightbox").style.display = "block";
+      document.getElementById("lightbox-img").src = imgSrc;
+      // Send event to Google Analytics
+      gtag('event','view_certificate',{
+        event_category:'Certificates',
+        event_label:certName
+      });
+    }
+
+    // Close Lightbox
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+      // Send event to Google Analytics
+      gtag('event','close_lightbox',{
+        event_category:'Certificates',
+        event_label:'Closed Lightbox'
+      });
+    }
+  </script>
+</body>
+</html>
